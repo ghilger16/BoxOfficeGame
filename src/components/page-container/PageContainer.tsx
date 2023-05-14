@@ -9,7 +9,5 @@ type PageContainerProps = {
 export const PageContainer: React.FunctionComponent<PageContainerProps> = ({
   children,
 }: PageContainerProps) => {
-  return (
-    <Styled.Container className="page-container">{children}</Styled.Container>
-  );
+  return <Styled.Container>{children}</Styled.Container>;
 };

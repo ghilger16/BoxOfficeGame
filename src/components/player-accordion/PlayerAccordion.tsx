@@ -2,12 +2,19 @@ import React from "react";
 
 import * as Styled from "./PlayerAccordian.styled";
 
-type AccordionProps = {
+interface AccordionProps {
+  icon: string;
   title: string;
+  score: number;
   children: React.ReactNode;
-};
+}
 
-export const PlayerAccordion = ({ title, children }: AccordionProps) => {
+export const PlayerAccordion = ({
+  icon,
+  title,
+  score,
+  children,
+}: AccordionProps) => {
   const [isExpanded, setIsExpanded] = React.useState(false);
 
   const handleAccordionClick = () => {
@@ -15,27 +22,20 @@ export const PlayerAccordion = ({ title, children }: AccordionProps) => {
   };
 
   return (
-    <Styled.RowContainer>
-      <Styled.Container>
-        <Styled.PlayerAccordian>
-          <Styled.Card>
-            <Styled.CardHeader>
-              <Styled.mb>
-                <Styled.PlayerButton onClick={handleAccordionClick}>
-                  <Styled.Heading>
-                    <Styled.Icon>
-                      <Styled.IconSpan>Hi</Styled.IconSpan>
-                    </Styled.Icon>
-                    <Styled.PlayerTitle> {title}</Styled.PlayerTitle>
-                  </Styled.Heading>
-                  <Styled.PlayerScore>300</Styled.PlayerScore>
-                </Styled.PlayerButton>
-                {isExpanded && <div>{children}</div>}
-              </Styled.mb>
-            </Styled.CardHeader>
-          </Styled.Card>
-        </Styled.PlayerAccordian>
-      </Styled.Container>
-    </Styled.RowContainer>
+    <Styled.PlayerAccordian>
+      <Styled.PlayerButton
+        onClick={handleAccordionClick}
+        isExpanded={isExpanded}
+      >
+        <Styled.Heading>
+          <Styled.Icon isExpanded={isExpanded}>
+            <Styled.IconSpan isExpanded={isExpanded}>{icon}</Styled.IconSpan>
+          </Styled.Icon>
+          <Styled.PlayerTitle>{title}</Styled.PlayerTitle>
+        </Styled.Heading>
+        <Styled.PlayerScore isExpanded={isExpanded}>{score}</Styled.PlayerScore>
+      </Styled.PlayerButton>
+      {isExpanded ? <div>{children}</div> : null}
+    </Styled.PlayerAccordian>
   );
 };

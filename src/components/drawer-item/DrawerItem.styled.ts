@@ -9,7 +9,7 @@ export const PlayerAccordian = styled.div`
   width: 550px;
 `;
 
-export const PlayerButton = styled.button<ButtonProps>`
+export const PlayerButton = styled.button`
   display: flex;
   padding: 10px;
   width: 100%;
@@ -17,8 +17,6 @@ export const PlayerButton = styled.button<ButtonProps>`
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   align-items: center;
   justify-content: space-between;
-
-  background-color: ${(props) => (props.isExpanded ? "#ffe97a" : "white")};
 `;
 
 export const Heading = styled.div`
@@ -27,19 +25,19 @@ export const Heading = styled.div`
   margin-left: 15px;
 `;
 
-export const Icon = styled.div<ButtonProps>`
+export const Icon = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: ${(props) => (props.isExpanded ? "white" : "#ffe97a")};
+  background: "white";
 `;
 
-export const IconSpan = styled.span<ButtonProps>`
+export const IconSpan = styled.span`
   font-size: 20px;
-  color: ${(props) => (props.isExpanded ? "#ffe97a" : "white")};
+  color: "white";
 `;
 
 export const PlayerTitle = styled.h3`
@@ -47,12 +45,10 @@ export const PlayerTitle = styled.h3`
   margin-left: 1rem;
 `;
 
-export const PlayerScore = styled.p<ButtonProps>`
+export const PlayerScore = styled.p`
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 40px;
   font-size: 16px;
   padding: 5px 15px;
   margin-right: 15px;
-  color: ${(props) => (props.isExpanded ? "white" : "black")};
-  background: ${(props) => (props.isExpanded ? "#ddbe12" : "white")};
 `;
