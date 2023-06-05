@@ -8,6 +8,11 @@ type PageContainerProps = {
 
 export const PageContainer: React.FunctionComponent<PageContainerProps> = ({
   children,
+  ...rest
 }: PageContainerProps) => {
-  return <Styled.Container>{children}</Styled.Container>;
+  return (
+    <div {...rest}>
+      <Styled.Container>{children}</Styled.Container>
+    </div>
+  );
 };

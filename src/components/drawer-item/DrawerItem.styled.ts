@@ -4,19 +4,9 @@ interface ButtonProps {
   isExpanded: boolean;
 }
 
-export const PlayerAccordian = styled.div`
+export const DrawerContainer = styled.div`
   margin: 0 auto;
   width: 550px;
-`;
-
-export const PlayerButton = styled.button`
-  display: flex;
-  padding: 10px;
-  width: 100%;
-  border: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  align-items: center;
-  justify-content: space-between;
 `;
 
 export const Heading = styled.div`
@@ -25,29 +15,22 @@ export const Heading = styled.div`
   margin-left: 15px;
 `;
 
-export const Icon = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: "white";
+export const OrderNumber = styled.span`
+  margin-right: 10px;
+  font-weight: bold;
 `;
 
-export const IconSpan = styled.span`
-  font-size: 20px;
-  color: "white";
+export const TitleWrapper = styled.div`
+  flex: 1;
+  text-align: center;
 `;
 
-export const PlayerTitle = styled.h3`
+export const Title = styled.h3`
   font-size: 16px;
-  margin-left: 1rem;
+  margin: 0;
 `;
 
-export const PlayerScore = styled.p`
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 40px;
+export const GrossGuess = styled.p`
   font-size: 16px;
   padding: 5px 15px;
   margin-right: 15px;

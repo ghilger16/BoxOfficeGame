@@ -7,6 +7,7 @@ interface ButtonProps {
 export const PlayerAccordian = styled.div`
   margin: 0 auto;
   width: 550px;
+  box-shadow: 0 12px 12px rgba(0, 0, 0, 0.1);
 `;
 
 export const PlayerButton = styled.button<ButtonProps>`
@@ -17,6 +18,7 @@ export const PlayerButton = styled.button<ButtonProps>`
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   align-items: center;
   justify-content: space-between;
+  cursor: pointer;
 
   background-color: ${(props) => (props.isExpanded ? "#ffe97a" : "white")};
 `;
