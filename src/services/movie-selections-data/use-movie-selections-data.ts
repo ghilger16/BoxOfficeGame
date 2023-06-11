@@ -1,10 +1,25 @@
 import React from "react";
-import { UseQueryResult, useQuery } from "react-query";
+import {
+  UseMutationResult,
+  UseQueryResult,
+  useMutation,
+  useQuery,
+  useQueryClient,
+} from "react-query";
 import { boxOfficeMovieSelectionsService } from "../box-office-numbers/movie-selections";
-import { IMovieSelection } from "../box-office-numbers/movie-selections/types";
+import {
+  IMovieSelection,
+  IUserMovieSelections,
+} from "../box-office-numbers/movie-selections/types";
 
 type UseGetMovieSelectionsForUserResult = UseQueryResult<
   IMovieSelection,
+  unknown
+>;
+type useCreateUserSelectionResult = UseMutationResult<
+  any,
+  Error,
+  IUserMovieSelections,
   unknown
 >;
 
@@ -18,4 +33,21 @@ export const useGetMovieSelectionsForUser = (
   }, [userName]);
 
   return useQuery("movieSelections", getMovieSelectionsByUser);
+};
+
+export const useCreateUserSelection = (): useCreateUserSelectionResult => {
+  const queryClient = useQueryClient();
+  const mutation = useMutation<any, Error, IUserMovieSelections>(
+    async (request) =>
+      await boxOfficeMovieSelectionsService.createUserSelection(
+        request.userName,
+        request.movieSelections
+      ),
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries("movieSelections");
+      },
+    }
+  );
+  return mutation;
 };

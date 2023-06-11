@@ -8,7 +8,10 @@ import {
   JeffCannataSheet,
   PeterScirettaSheet,
 } from "./PlayerSheets";
-import { useGetMovieSelectionsForUser } from "./services/movie-selections-data/use-movie-selections-data";
+import {
+  useGetMovieSelectionsForUser,
+  useCreateUserSelection,
+} from "./services/movie-selections-data/use-movie-selections-data";
 
 type playerSheet = {
   id: number;
@@ -65,8 +68,30 @@ function App() {
   const { data: userPlayerSheet, isLoading } =
     useGetMovieSelectionsForUser("JohnDoe");
   console.log(userPlayerSheet);
+  const { mutate: createUserSelection } = useCreateUserSelection() as any;
+
+  const handleCreateUserSelection = () => {
+    if (createUserSelection) {
+      createUserSelection("testUser", [
+        {
+          id: 1,
+          selectionOrder: 1,
+          movieTitle: "Die Hard",
+          boxOfficeGross: 100000,
+        },
+        {
+          id: 2,
+          selectionOrder: 2,
+          movieTitle: "The Sandlot",
+          boxOfficeGross: 300000,
+        },
+      ]);
+    }
+  };
+
   return (
     <>
+      <button onClick={handleCreateUserSelection}></button>
       <div>
         {sortedData.map((data) => (
           <PlayerAccordion
