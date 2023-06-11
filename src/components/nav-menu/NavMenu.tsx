@@ -11,6 +11,7 @@ export const NavMenu: React.FC = ({ ...rest }) => {
   React.useEffect(() => {
     setActiveMenuItem(pathname);
   }, [pathname, setActiveMenuItem]);
+
   return (
     <div>
       {menuItems && (
@@ -18,7 +19,7 @@ export const NavMenu: React.FC = ({ ...rest }) => {
           {menuItems.map((item: any) => (
             <Styled.NavMenuItem
               to={item.link}
-              isActive={activeMenuItem === item.label}
+              isActive={activeMenuItem === item.link}
             >
               {item.label}
             </Styled.NavMenuItem>

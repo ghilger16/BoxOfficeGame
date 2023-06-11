@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { PlayerAccordion } from "./components/player-accordion/PlayerAccordion";
-import { PageContainer } from "./components/page-container/PageContainer";
+
 import { DrawerItem } from "./components/drawer-item/DrawerItem";
 import {
   DavidChenSheet,
@@ -8,7 +8,7 @@ import {
   JeffCannataSheet,
   PeterScirettaSheet,
 } from "./PlayerSheets";
-import { NavMenu } from "./components/nav-menu/NavMenu";
+import { useGetMovieSelectionsForUser } from "./services/movie-selections-data/use-movie-selections-data";
 
 type playerSheet = {
   id: number;
@@ -62,6 +62,9 @@ const sortByScore = (data: AccordionData[]) =>
 const sortedData = sortByScore(accordionData);
 
 function App() {
+  const { data: userPlayerSheet, isLoading } =
+    useGetMovieSelectionsForUser("JohnDoe");
+  console.log(userPlayerSheet);
   return (
     <>
       <div>
