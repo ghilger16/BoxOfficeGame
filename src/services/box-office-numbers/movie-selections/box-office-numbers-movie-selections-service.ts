@@ -13,14 +13,14 @@ class BoxOfficeNumbersMovieSelectionsService {
 
   async createUserSelection(
     userName: string,
-    userSelection: IMovieSelection[]
+    movieSelections: IMovieSelection[]
   ): Promise<void> {
     const response = await fetch("http://localhost:8080/userSelections", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(userSelection),
+      body: JSON.stringify({ userName, movieSelections }),
     });
     if (!response.ok) {
       throw new Error(`Failed to create user selection for user ${userName}`);

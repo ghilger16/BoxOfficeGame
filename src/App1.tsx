@@ -65,27 +65,25 @@ const sortByScore = (data: AccordionData[]) =>
 const sortedData = sortByScore(accordionData);
 
 function App() {
-  const { data: userPlayerSheet, isLoading } =
-    useGetMovieSelectionsForUser("JohnDoe");
-  console.log(userPlayerSheet);
   const { mutate: createUserSelection } = useCreateUserSelection() as any;
 
   const handleCreateUserSelection = () => {
     if (createUserSelection) {
-      createUserSelection("testUser", [
-        {
-          id: 1,
-          selectionOrder: 1,
-          movieTitle: "Die Hard",
-          boxOfficeGross: 100000,
-        },
-        {
-          id: 2,
-          selectionOrder: 2,
-          movieTitle: "The Sandlot",
-          boxOfficeGross: 300000,
-        },
-      ]);
+      createUserSelection({
+        userName: "testUser",
+        movieSelections: [
+          {
+            selectionOrder: 1,
+            movieTitle: "Die Hard",
+            boxOfficeGross: 100000,
+          },
+          {
+            selectionOrder: 2,
+            movieTitle: "The Sandlot",
+            boxOfficeGross: 300000,
+          },
+        ],
+      });
     }
   };
 
