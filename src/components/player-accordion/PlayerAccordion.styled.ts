@@ -4,7 +4,7 @@ interface ButtonProps {
   isExpanded: boolean;
 }
 
-export const PlayerAccordian = styled.div`
+export const PlayerAccordion = styled.div`
   margin: 0 auto;
   width: 550px;
   box-shadow: 0 12px 12px rgba(0, 0, 0, 0.1);

@@ -13,7 +13,7 @@ import {
 } from "../box-office-numbers/movie-selections/types";
 
 type UseGetMovieSelectionsForUserResult = UseQueryResult<
-  IMovieSelection,
+  IUserMovieSelections,
   unknown
 >;
 type useCreateUserSelectionResult = UseMutationResult<

@@ -1,6 +1,6 @@
 import React from "react";
 
-import * as Styled from "./PlayerAccordian.styled";
+import * as Styled from "./PlayerAccordion.styled";
 
 interface AccordionProps {
   icon: string;
@@ -22,7 +22,7 @@ export const PlayerAccordion = ({
   };
 
   return (
-    <Styled.PlayerAccordian>
+    <Styled.PlayerAccordion>
       <Styled.PlayerButton
         onClick={handleAccordionClick}
         isExpanded={isExpanded}
@@ -36,6 +36,6 @@ export const PlayerAccordion = ({
         <Styled.PlayerScore isExpanded={isExpanded}>{score}</Styled.PlayerScore>
       </Styled.PlayerButton>
       {isExpanded ? <div>{children}</div> : null}
-    </Styled.PlayerAccordian>
+    </Styled.PlayerAccordion>
   );
 };
