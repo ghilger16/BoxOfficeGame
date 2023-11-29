@@ -1,10 +1,10 @@
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
-import { RoutePaths } from "./components/nav-menu/utils";
 import App1 from "./App1";
 import { NavMenu } from "./components/nav-menu/NavMenu";
 import { Login } from "./routes/route-scores/route-login/Login";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { Scores } from "./routes/route-scores/Scores";
+import { RoutePaths } from "./components/nav-menu/constants";
 
 export const App: React.FC = () => {
   const isAuthenticated = true; // Replace with your authentication logic

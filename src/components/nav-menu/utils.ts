@@ -1,8 +1,4 @@
-export enum RoutePaths {
-  SCORES = "/scores",
-  BOARDS = "/boards",
-  RULES = "/rules",
-}
+import { RoutePaths } from "./constants";
 
 export const getNavigationLinks = () => {
   return [
