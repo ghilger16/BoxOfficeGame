@@ -6,11 +6,9 @@ import {
   useQuery,
   useQueryClient,
 } from "react-query";
-import { boxOfficeMovieSelectionsService } from "../box-office-numbers/movie-selections";
-import {
-  IMovieSelection,
-  IUserMovieSelections,
-} from "../box-office-numbers/movie-selections/types";
+
+import { IMovieSelection, IUserMovieSelections } from "../types/types";
+import { movieSelectionsService } from "./movie-selections-service";
 
 type UseGetMovieSelectionsForUserResult = UseQueryResult<
   IUserMovieSelections,
@@ -27,9 +25,7 @@ export const useGetMovieSelectionsForUser = (
   userName: string
 ): UseGetMovieSelectionsForUserResult => {
   const getMovieSelectionsByUser = React.useCallback(async () => {
-    return await boxOfficeMovieSelectionsService.getMovieSelectionsByUser(
-      userName
-    );
+    return await movieSelectionsService.getMovieSelectionsByUser(userName);
   }, [userName]);
 
   return useQuery("movieSelections", getMovieSelectionsByUser);
@@ -39,7 +35,7 @@ export const useCreateUserSelection = (): useCreateUserSelectionResult => {
   const queryClient = useQueryClient();
   const mutation = useMutation<any, Error, IUserMovieSelections>(
     async (request) =>
-      await boxOfficeMovieSelectionsService.createUserSelection(
+      await movieSelectionsService.createUserSelection(
         request.userName,
         request.movieSelections
       ),
