@@ -1,4 +1,4 @@
-import { IMovieSelection, IUserMovieSelections } from "../types/types";
+import { IMovieSelection, IUserMovieSelections } from "../types";
 
 export const mockIMovieSelection: IMovieSelection[] = [
   {

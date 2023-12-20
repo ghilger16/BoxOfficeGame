@@ -1,14 +1,14 @@
 import { DrawerItem } from "../../components/drawer-item/DrawerItem";
 import { PlayerAccordion } from "../../components/player-accordion/PlayerAccordion";
+import { useGetMovies } from "../../services";
 import { useGetMovieSelectionsForUser } from "../../services/movie-selections-data/use-movie-selections-data";
 
 export const Scores: React.FC = () => {
-  const { data: UserSelections } = useGetMovieSelectionsForUser("Jeff");
-  const { data: devindraSelections } = useGetMovieSelectionsForUser("Devindra");
-  console.log(UserSelections);
+  const { data } = useGetMovies();
+  console.log(data);
   return (
     <>
-      <PlayerAccordion icon={"JC"} title={"Jeff"} score={400} key={"jeff"}>
+      {/* <PlayerAccordion icon={"JC"} title={"Jeff"} score={400} key={"jeff"}>
         {UserSelections?.movieSelections.map((movie) => (
           <DrawerItem
             id={movie.selectionOrder}
@@ -30,7 +30,7 @@ export const Scores: React.FC = () => {
             boxOfficeGross={movie.boxOfficeGross}
           />
         ))}
-      </PlayerAccordion>
+      </PlayerAccordion> */}
     </>
   );
 };

@@ -7,7 +7,7 @@ import {
   useQueryClient,
 } from "react-query";
 
-import { IMovieSelection, IUserMovieSelections } from "../types/types";
+import { IMovieSelection, IUserMovieSelections } from "../types";
 import { movieSelectionsService } from "./movie-selections-service";
 
 type UseGetMovieSelectionsForUserResult = UseQueryResult<

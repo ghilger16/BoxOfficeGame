@@ -1,5 +1,5 @@
 import React from "react";
-import { IMovieSelection } from "../types/types";
+import { IMovieSelection } from "../types";
 import { movieSelectionsService } from "./movie-selections-service";
 import { mockIMovieSelection } from "../mocks/mock-movie-selections-data";
 

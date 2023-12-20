@@ -1,4 +1,4 @@
-import { IMovieSelection } from "../types/types";
+import { IMovieSelection } from "../types";
 
 class MovieSelectionsService {
   async getMovieSelectionsByUser(userName: string): Promise<IMovieSelection[]> {
