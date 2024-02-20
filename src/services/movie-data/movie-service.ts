@@ -2,23 +2,28 @@ import { MOVIES_URL } from "../constants";
 import { IMovie } from "../types";
 
 class MovieService {
-  async getMovies(): Promise<IMovie[]> {
+  async getMovies(): Promise<any[]> {
     try {
       const response = await fetch(MOVIES_URL);
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
       return response.json();
     } catch (error: any) {
-      throw new Error(`MovieService: Failed to fetch movies`, error.message);
+      throw new Error(`MovieService: Failed to fetch movies. ${error.message}`);
     }
   }
 
   async getMovieById(movieId: number): Promise<IMovie> {
     try {
       const response = await fetch(`${MOVIES_URL}/${movieId}`);
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
       return response.json();
     } catch (error: any) {
       throw new Error(
-        `MovieService: Failed to fetch movie by id ${movieId}`,
-        error.message
+        `MovieService: Failed to fetch movie by id ${movieId}. ${error.message}`
       );
     }
   }
