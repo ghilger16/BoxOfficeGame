@@ -1,4 +1,5 @@
 import { DrawerItem } from "../../components/drawer-item/DrawerItem";
+import { MovieCard } from "../../components/movie-card";
 import { PlayerAccordion } from "../../components/player-accordion/PlayerAccordion";
 import { useGetMovies } from "../../services";
 import { useGetMovieSelectionsForUser } from "../../services/movie-selections-data/use-movie-selections-data";
@@ -8,6 +9,9 @@ export const Scores: React.FC = () => {
   console.log(data);
   return (
     <>
+      {data?.map((movie) => (
+        <MovieCard movie={movie} />
+      ))}
       {/* <PlayerAccordion icon={"JC"} title={"Jeff"} score={400} key={"jeff"}>
         {UserSelections?.movieSelections.map((movie) => (
           <DrawerItem
